@@ -1,0 +1,50 @@
+<html>
+<head>
+</head>
+<body>
+    <div>
+        <h4>请输入Apple App ID，每行一个</h4>
+        <form>
+            <textarea id="ids" rows="20" cols="80"></textarea>
+            <br>
+            权重： <input id="weight" type="text" value="0"></input>
+            <br>
+            category： <input id="category" type="text" value=""></input>
+            <input id="btnAdd" type="button" value="提交"></input>
+        </form>
+    </div>
+    <script src="/static/js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btnAdd").click(function(){
+                var ids = $("#ids").val();
+                var weight = $("#weight").val();
+                var category = $("#category").val();
+
+                $.ajax({
+                    type: "POST",
+                    url:  "/api/app/add",
+                    data: {
+                        ids: ids,
+                        weight: weight,
+                        category: category
+                    },
+                    success: function(data){
+                        if (data.rc != 0) {
+                            alert(data.msg);
+                            return;
+                        }
+                        alert("添加成功。")
+                        document.location.href="/ui/app/add";
+                    },
+                    error: function(req, textStatus, errorThrown) {
+                        alert("数据保存失败!\n" + textStatus + ": " + errorThrown);
+                    }
+                });
+
+                return false;
+            });
+        }); 
+    </script>
+</body>
+</html>

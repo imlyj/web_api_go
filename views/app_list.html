@@ -1,0 +1,58 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>stat</title>
+</head>
+
+<body>
+<form method="POST" action="/app/query" >
+  <h1>AppInfo</h1>
+ <table border="0" >
+
+</table><br/>
+
+
+<table width="100%" align="center" cellspacing="3" cellpadding="3">
+  <tr>
+    <td bgcolor="#FFCC66" align="center">appId</td>
+    <td bgcolor="#FFCC66" align="center">category</td>
+    <td bgcolor="#FFCC66" align="center">bundleId</td>
+    <td bgcolor="#FFCC66" align="center">name</td>
+    <td bgcolor="#FFCC66" align="center">price</td>
+    <td bgcolor="#FFCC66" align="center">currency</td>
+    <td bgcolor="#FFCC66" align="center">version</td>
+    <td bgcolor="#FFCC66" align="center">更新时间</td>
+    <td bgcolor="#FFCC66" align="center">update_ts</td>
+    <td bgcolor="#FFCC66" align="center">weight</td>
+    <td bgcolor="#FFCC66" align="center">is_enable</td>
+    <td bgcolor="#FFCC66" align="center">is_paid_whitelist</td>
+    <td bgcolor="#FFCC66" align="center">appExtVrsId</td>
+    <td bgcolor="#FFCC66" align="center">datas</td>
+    <td bgcolor="#FFCC66" align="center">操作</td>
+  </tr>
+  {{range $k,$app := .list}}
+        <tr align="center">
+          <td>{{$app.AppId}}</td>
+          <td>{{$app.Category}}</td>
+          <td>{{$app.BundleId}}</td>
+          <td>{{$app.Name}}</td>
+          <td>{{$app.Price}}</td>
+          <td>{{$app.Currency}}</td>
+          <td>{{$app.Version}}</td>
+          <td>{{$app.Update_date}}</td>
+          <td>{{$app.Update_ts}}</td>
+          <td>{{$app.Weight}}</td>
+          <td>{{$app.Is_enable}}</td>
+          <td>{{$app.Is_paid_whitelist}}</td>
+          <td>{{$app.AppExtVrsId}}</td>
+          <td>{{$app.Datas}}</td>
+          <td><a href="/app/edit?appId={{$app.AppId}}">修改</a></td>
+         </tr>
+   {{end}}
+   
+</table>
+<!--分页-->
+    <font width="820px;" align="center"><font size="5">{{str2html .pagebar}}</font> </div>
+</form>
+</body>
+</html>
