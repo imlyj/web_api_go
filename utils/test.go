@@ -1,7 +1,8 @@
-package utils
+package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func checkErr(err error) {
@@ -30,7 +31,7 @@ type Us struct{
 }
 
 func main(){
-	u := Us{}
-	u.Price = 1.0
-	fmt.Println(u.Price)
+//	fmt.Println(time.Now().Unix())
+	a := time.Now().Unix()
+	fmt.Println(time.Unix(a,0).Format("2006-01-02 15:04:05"))
 }

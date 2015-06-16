@@ -21,7 +21,7 @@
     <td bgcolor="#FFCC66" align="center">price</td>
     <td bgcolor="#FFCC66" align="center">currency</td>
     <td bgcolor="#FFCC66" align="center">version</td>
-    <td bgcolor="#FFCC66" align="center">更新时间</td>
+    <td bgcolor="#FFCC66" align="center">update_date</td>
     <td bgcolor="#FFCC66" align="center">update_ts</td>
     <td bgcolor="#FFCC66" align="center">weight</td>
     <td bgcolor="#FFCC66" align="center">is_enable</td>
@@ -40,7 +40,7 @@
           <td>{{$app.Currency}}</td>
           <td>{{$app.Version}}</td>
           <td>{{$app.Update_date}}</td>
-          <td>{{$app.Update_ts}}</td>
+          <td>{{int2str $app.Update_ts}}</td>
           <td>{{$app.Weight}}</td>
           <td>{{$app.Is_enable}}</td>
           <td>{{$app.Is_paid_whitelist}}</td>
