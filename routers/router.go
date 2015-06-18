@@ -12,7 +12,7 @@ func init() {
 //	beego.Router("/test/all",&controllers.DemoController{},"*:All")
 
 	beego.Router("/api/app/add",&api.AppController{},"*:AddApp")
-	beego.Router("api/app/list",&api.AppController{},"*:ListApp")
+	beego.Router("/api/app/list",&api.AppController{},"*:ListApp")
 	beego.Router("/api/app/update",&api.AppController{},"*:UpdateApp")
 	beego.Router("/api/app/update/want",&api.AppController{},"*:UpdateWantApp")
 	beego.Router("/api/app/clear/category",&api.AppController{},"*:ClearCategory")

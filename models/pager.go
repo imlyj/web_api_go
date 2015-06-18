@@ -22,6 +22,36 @@ func NewPager(page, totalnum, pagesize int64, urlpath string) *Pager {
 	return p
 }
 
+//######################################################################
+type ObjPage struct{
+	Total int64  `json:"total"`
+	Prev int64   `json:"prev"`
+	Next int64   `json:"next"`
+	Index int64  `json:"index"`//当前页
+	PageCount int64  `json:"pageCount"`//总页
+	PageSize  int64  `json:"pageSize"`
+	ListLength int64  `json:"listLength"`
+}
+
+func NewObjPage(total,page,pagesize int64) *ObjPage{
+	p := new(ObjPage)
+	p.Index = page
+	p.Total = total
+	p.PageCount = ((total - 1) / pagesize) + 1
+	p.PageSize = pagesize
+	p.Next = page+1
+	p.Prev = page-1
+	p.ListLength = 6
+	if p.Prev < 0 {
+		p.Prev = 1
+	}
+	if p.Next > p.PageCount{
+		p.Next = p.PageCount
+	}
+	return p
+}
+//#######################################################################
+
 func (this *Pager) url(page int64) string {
 	return fmt.Sprintf(this.urlpath, page)
 }

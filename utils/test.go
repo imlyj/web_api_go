@@ -1,4 +1,4 @@
-package main
+package utils
 
 import (
 	"fmt"
@@ -32,6 +32,10 @@ type Us struct{
 
 func main(){
 //	fmt.Println(time.Now().Unix())
-	a := time.Now().Unix()
-	fmt.Println(time.Unix(a,0).Format("2006-01-02 15:04:05"))
+//	a := time.Now().Unix()
+//	fmt.Println(time.Unix(a,0).Format("2006-01-02 15:04:05"))
+	strTime := "2015-06-18"
+	t,_:=time.Parse("2006-01-02",strTime)
+	tt := t.Unix()
+	fmt.Println("--------",tt)
 }

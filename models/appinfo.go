@@ -8,27 +8,27 @@ import (
 )
 
 type AppInfo struct {
-	AppId  string  `orm:"pk;column(appId)"`
-	BundleId  string `orm:"column(bundleId)"`
-	Name  string
-	Price float64
-	Currency string
-	Version string
-	WebUrl string `orm:"column(webUrl)"`
-	Ipad int
-	Iphone int
-	Update_date string
-	Datas string
-	Create_ts int64
-	Update_ts int64
-	Last_result int
-	Is_enable int
-	Weight  int
-	MinimumOsVersion string   `orm:"column(minimumOsVersion)"`
-	Category string
-	Storage_group  string
-	Is_paid_whitelist  int
-	AppExtVrsId  string  `orm:"column(appExtVrsId)"`
+	AppId  string  `orm:"pk;column(appId)"json:"appId"`
+	BundleId  string `orm:"column(bundleId)"json:"bundleId"`
+	Name  string `json:"name"`
+	Price float64 `json:"price"`
+	Currency string   `json:"currency"`
+	Version string `json:"version"`
+	WebUrl string `orm:"column(webUrl)" json:"webUrl"`
+	Ipad int `json:"ipad"`
+	Iphone int `json:"iphone"`
+	Update_date string `json:"update_date"`
+	Datas string `json:"datas"`
+	Create_ts int64 `json:"create_ts"`
+	Update_ts int64 `json:"update_ts"`
+	Last_result int `json:"last_result"`
+	Is_enable int  `json:"is_enable"`
+	Weight  int  `json:"weigth"`
+	MinimumOsVersion string   `orm:"column(minimumOsVersion)" json:"minimumOsVersion"`
+	Category string `json:"category"`
+	Storage_group  string `json:"storage_group"`
+	Is_paid_whitelist  int  `json:"is_paid_whitelist"`
+	AppExtVrsId  string  `orm:"column(appExtVrsId)" json:"appExtVrsId"`
 }
 
 func (this *AppInfo) TableName()string{
