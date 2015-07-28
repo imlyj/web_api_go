@@ -1,8 +1,9 @@
-package utils
+package main
 
 import (
 	"fmt"
 	"time"
+	"runtime"
 )
 
 func checkErr(err error) {
@@ -30,12 +31,22 @@ type Us struct{
 	Price float64
 }
 
+type Node struct{
+	
+	next interface{}
+
+}
+
+func say(s string) {
+	for i := 0; i < 5; i++ {
+		runtime.Gosched()
+		fmt.Println(s)
+	}
+}
+
 func main(){
-//	fmt.Println(time.Now().Unix())
-//	a := time.Now().Unix()
-//	fmt.Println(time.Unix(a,0).Format("2006-01-02 15:04:05"))
-	strTime := "2015-06-18"
-	t,_:=time.Parse("2006-01-02",strTime)
-	tt := t.Unix()
-	fmt.Println("--------",tt)
+	fmt.Println(time.Now().Unix())
+//	runtime.GOMAXPROCS(2)
+	go say("world")
+	say("hello")
 }
